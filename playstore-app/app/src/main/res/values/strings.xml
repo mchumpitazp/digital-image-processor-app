@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">Image Processor</string>
+
+    <!--    Main Activity: Entry for select image source -->
+    <string name="entry__text">Select image source</string>
+    <string name="entry__gallery_mode">Gallery Mode Option</string>
+    <string name="entry__real_time_mode">Real-Time Mode Option</string>
+
+    <!--    Digital Image Processing Categories -->
+    <string name="category__basics">Basic Transforms</string>
+    <string name="category__spatial">Filtering in spatial domain</string>
+    <string name="category__frequency">Filtering in frequency domain</string>
+    <string name="category__restoration">Mean and order-statistic filters</string>
+    <string name="category__color">Color processing</string>
+    <string name="category__wavelets">Wavelets</string>
+    <string name="category__morphology">Morphology</string>
+    <string name="category__segmentation">Segmentation</string>
+
+    <string name="button_history">Button shows the methods applied before</string>
+    <string name="button_add_method">Button opens the list of methods</string>
+    <string name="button_save_image">Button saved the current processed image</string>
+
+    <!--    DIP Category: Basic Transforms  -->
+    <string-array name="basic_transforms">
+        <item>Negative</item>
+        <item>Log</item>
+        <item>Inverse log</item>
+        <item>Power-law</item>
+        <item>Contrast stretching</item>
+        <item>Bit-plane slicing</item>
+        <item>Histogram equalization</item>
+    </string-array>
+
+    <!--    DIP Category: Filtering in Spatial Domain  -->
+    <string-array name="spatial_domain">
+        <item>Mean blur</item>
+        <item>Gaussian blur</item>
+        <item>Laplacian sharp</item>
+        <!--        <item>Unsharp mask and highboost filter</item>-->
+        <item>Gradient sharp</item>
+    </string-array>
+
+    <!--    DIP Category: Filtering in Spatial Domain  -->
+    <string-array name="frequency_domain">
+        <item>Ideal lowpass</item>
+        <item>Ideal highpass</item>
+        <item>Butterworth lowpass</item>
+        <item>Butterworth highpass</item>
+        <item>Gaussian lowpass</item>
+        <item>Gaussian highpass</item>
+        <item>Laplacian</item>
+    </string-array>
+
+    <string-array name="restoration_filters">
+        <item>Geometric mean</item>
+        <item>Contraharmonic mean</item>
+        <item>Median</item>
+        <item>Max</item>
+        <item>Min</item>
+        <item>Midpoint</item>
+    </string-array>
+
+    <string-array name="morphology_filters">
+        <item>Erosion</item>
+        <item>Dilation</item>
+        <item>Opening</item>
+        <item>Closing</item>
+        <item>Smoothing</item>
+        <item>Gradient</item>
+    </string-array>
+
+    <string-array name="color_processing">
+        <item>RGB planes</item>
+        <item>RGB to HSI</item>
+        <item>Intensity slicing</item>
+        <item>Intensity to color</item>
+        <item>Color balance</item>
+    </string-array>
+
+    <string-array name="wavelets">
+        <item>Haar transform</item>
+    </string-array>
+
+    <string-array name="segmentation">
+        <item>Binary threshold</item>
+        <item>Otsu\'s threshold</item>
+        <item>Hough circle</item>
+    </string-array>
+</resources>

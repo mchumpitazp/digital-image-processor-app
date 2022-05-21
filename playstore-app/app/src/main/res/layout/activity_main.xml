@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Select image source"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="bottom"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Photo gallery"
+            android:textSize="20sp"
+            android:layout_weight="2"
+            android:gravity="bottom"/>
+
+        <ImageView
+            android:id="@+id/galleryView"
+            android:src="@drawable/ic_workmode_gallery"
+            android:layout_width="170dp"
+            android:layout_height="150dp"
+            android:padding="20dp"
+            android:background="@drawable/ic_entry_imageview_border"
+            android:contentDescription="@string/entry__gallery_mode"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Back camera streaming"
+            android:textSize="20sp"
+            android:gravity="bottom"
+            android:layout_weight="2"/>
+
+        <ImageView
+            android:id="@+id/realTimeView"
+            android:src="@drawable/ic_workmode_realtime"
+            android:layout_width="170dp"
+            android:layout_height="150dp"
+            android:padding="20dp"
+            android:background="@drawable/ic_entry_imageview_border"
+            android:contentDescription="@string/entry__real_time_mode"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

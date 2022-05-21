@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProcessingActivity">
+
+    <LinearLayout
+        android:id="@+id/globalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <!--Header LinearLayout-->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="Home"
+                android:autoSizeTextType="uniform"
+                app:drawableRightCompat="@drawable/ic_arrow_back" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/imageInfoHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="_Image_Information_"
+                        android:autoSizeMaxTextSize="15sp"
+                        android:autoSizeTextType="uniform"
+                        app:drawableRightCompat="@drawable/ic_settings"/>
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/imageInfoHeader_Spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnToGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="To gray"
+                android:autoSizeTextType="uniform"
+                app:drawableRightCompat="@drawable/ic_to_gray" />
+        </LinearLayout>
+
+        <!--Processing LinearLayout-->
+        <LinearLayout
+            android:id="@+id/processingLayout"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Processing_UserInteface ImageView-->
+            <ImageView
+                android:id="@+id/userImageView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"/>
+            
+            <androidx.camera.view.PreviewView
+                android:id="@+id/previewView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+            </androidx.camera.view.PreviewView>
+
+            <LinearLayout
+                android:id="@+id/llCapture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fab_background">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnRejectSave"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_close"
+                            app:elevation="0dp"
+                            app:backgroundTint="@color/white"
+                            android:outlineSpotShadowColor="@color/white"
+                            app:fabCustomSize="45dp"
+                            app:maxImageSize="25dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:autoSizeMinTextSize="5sp"
+                        android:autoSizeMaxTextSize="25sp"
+                        android:text="Cancel"
+                        android:autoSizeTextType="uniform"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fab_background">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnAcceptSave"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_check"
+                            app:elevation="5dp"
+                            app:backgroundTint="@color/white"
+                            android:outlineSpotShadowColor="@color/white"
+                            app:fabCustomSize="45dp"
+                            app:maxImageSize="25dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:autoSizeMinTextSize="5sp"
+                        android:autoSizeMaxTextSize="25sp"
+                        android:text="Save"
+                        android:autoSizeTextType="uniform"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"/>
+
+            </LinearLayout>
+
+            <!--Processing_Tracking LinearLayout-->
+            <LinearLayout
+                android:id="@+id/llTracking"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:gravity="top"
+                android:paddingTop="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/btnRemoveTracking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Remove all"
+                        android:textSize="10sp"
+                        android:gravity="left|center"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        android:drawableLeft="@drawable/ic_delete"/>
+
+                    <TextView
+                        android:id="@+id/historyHeaderTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="Methods applied"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Remove all"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:gravity="left|center"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        android:drawableLeft="@drawable/ic_delete_white"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/trackingListView"
+                    android:fadeScrollbars="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/trackingEmptyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"
+                    android:paddingTop="30dp"
+                    android:text="No processing yet"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    android:gravity="center"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <!--Processing_SetOfCategories LinearLayout-->
+            <LinearLayout
+                android:id="@+id/llSetOfCategories"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_basics"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__basics"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_spatial"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__spatial"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_frequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__frequency"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_restoration"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__restoration"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__color"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_wavelets"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__wavelets"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_morphology"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__morphology"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+                <TextView
+                    android:id="@+id/llSetOfCategories_segmentation"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/category__segmentation"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="25dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_down" />
+
+            </LinearLayout>
+
+            <!--Processing_SetOfMethods LinearLayout-->
+            <LinearLayout
+                android:id="@+id/llSetOfMethods"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/llSetOfMethods_selectedCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="_Selected_Category_"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingVertical="5dp"
+                    android:layout_marginHorizontal="15dp"
+                    app:drawableRightCompat="@drawable/ic_arrow_up"/>
+
+                <ListView
+                    android:id="@+id/llSetOfMethods_methodsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:fadeScrollbars="false"
+                    android:drawSelectorOnTop="false"/>
+
+            </LinearLayout>
+
+            <!--Processing_MathParams LinearLayout-->
+            <LinearLayout
+                android:id="@+id/llMathParams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!--MathParams Header Buttons-->
+                <LinearLayout
+                    android:id="@+id/llMathParams_HeaderButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginVertical="7dp">
+
+                    <TextView
+                        android:id="@+id/btnCancelMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Cancel"
+                        android:textSize="10sp"
+                        android:layout_marginStart="15dp"
+                        android:drawableLeft="@drawable/ic_close" />
+
+                    <TextView
+                        android:id="@+id/llMathParams_MethodName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="_MethodName_"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:autoSizeTextType="uniform"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/btnApplyMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apply"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="15dp"
+                        android:drawableRight="@drawable/ic_check" />
+
+                </LinearLayout>
+
+                <!--MathParams Extra Comment-->
+                <TextView
+                    android:id="@+id/ExtraComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:text="_ExtraComment_"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+                <!--MathParams First Spinner-->
+                <LinearLayout
+                    android:id="@+id/FirstSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="50dp"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/FirstSpinner_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="_SpinnerDescription_"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_weight="2"/>
+
+                    <ImageView
+                        android:id="@+id/FirstSpinner_Image"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:src="@drawable/strel_rect"
+                        android:visibility="gone"
+                        android:layout_weight="1"/>
+
+                    <Spinner
+                        android:id="@+id/FirstSpinner_Spinner"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:contentDescription="_FirstSpinner_"
+                        android:layout_weight="2"/>
+
+                </LinearLayout>
+
+                <!--MathParams Kernel-->
+                <LinearLayout
+                    android:id="@+id/KernelBars"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Kernel size"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/Kernel_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="_0x0_"
+                        android:textSize="13sp"/>
+
+                    <SeekBar
+                        android:id="@+id/Kernel_HeightBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+
+                    <RelativeLayout
+                        android:id="@+id/Kernel_Limits"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="30dp"
+                        android:gravity="fill_horizontal"
+                        android:layout_gravity="fill_horizontal">
+
+                        <TextView
+                            android:id="@+id/Kernel_minValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_min_"
+                            android:textSize="13sp"
+                            android:layout_alignParentLeft="true" />
+
+                        <TextView
+                            android:id="@+id/Kernel_maxValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_max_"
+                            android:textSize="13sp"
+                            android:layout_alignParentRight="true"/>
+
+                    </RelativeLayout>
+
+                    <SeekBar
+                        android:id="@+id/Kernel_WidthBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+                </LinearLayout>
+
+                <!--MathParams First Bar-->
+                <LinearLayout
+                    android:id="@+id/FirstBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/FirstBar_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="_MathParamName_"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="30dp">
+
+                        <TextView
+                            android:id="@+id/FirstBar_minValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_min_"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/FirstBar_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="13sp"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/FirstBar_maxValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_max_"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/FirstBar_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+
+                </LinearLayout>
+
+                <!--MathParams Second Bar-->
+                <LinearLayout
+                    android:id="@+id/SecondBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/SecondBar_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="_MathParamName_"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="30dp">
+
+                        <TextView
+                            android:id="@+id/SecondBar_minValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_min_"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/SecondBar_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="13sp"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/SecondBar_maxValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_max_"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/SecondBar_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+
+                </LinearLayout>
+
+                <!--MathParams Third Bar-->
+                <LinearLayout
+                    android:id="@+id/ThirdBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/ThirdBar_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="_MathParamName_"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="30dp">
+
+                        <TextView
+                            android:id="@+id/ThirdBar_minValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_min_"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/ThirdBar_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="13sp"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/ThirdBar_maxValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_max_"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/ThirdBar_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+
+                </LinearLayout>
+
+                <!--MathParams Fourth Bar-->
+                <LinearLayout
+                    android:id="@+id/FourthBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/FourthBar_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="_MathParamName_"
+                        android:textSize="15sp"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="30dp">
+
+                        <TextView
+                            android:id="@+id/FourthBar_minValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_min_"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/FourthBar_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="13sp"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/FourthBar_maxValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="_max_"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <SeekBar
+                        android:id="@+id/FourthBar_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Toolbar LinearLayout-->
+        <LinearLayout
+            android:id="@+id/toolBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginVertical="10dp">
+
+            <!--Toolbar_TrackingButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fab_background">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnTracking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_history"
+                        app:elevation="0dp"
+                        app:backgroundTint="@color/white"
+                        app:fabCustomSize="45dp"
+                        app:maxImageSize="28dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:text="Tracking"
+                    android:autoSizeTextType="uniform"/>
+
+            </LinearLayout>
+
+            <!--Toolbar_MethodsButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fab_background">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnAddMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/button_add_method"
+                        android:src="@drawable/ic_plus"
+                        app:elevation="0dp"
+                        app:backgroundTint="@color/white"
+                        app:fabCustomSize="45dp"
+                        app:maxImageSize="22dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:text="Methods"
+                    android:autoSizeTextType="uniform"
+                    />
+
+            </LinearLayout>
+
+            <!--Toolbar_SaveButton LinearLayout-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fab_background">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnSaveImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/button_save_image"
+                        android:src="@drawable/ic_save"
+                        app:elevation="0dp"
+                        app:backgroundTint="@color/white"
+                        app:fabCustomSize="45dp"
+                        app:maxImageSize="22dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:autoSizeMinTextSize="5sp"
+                    android:autoSizeMaxTextSize="25sp"
+                    android:text="Save"
+                    android:autoSizeTextType="uniform"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
